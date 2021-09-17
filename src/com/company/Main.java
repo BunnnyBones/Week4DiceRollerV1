@@ -19,6 +19,7 @@ public class Main {
             //accounting for the first change of index
             int index = -1;
 
+            //This sucked to do, took my like 4 different designs until I found out .charAt() existed
             for(int i =0; i < rawInput.length(); i++){
                 index = index +1;
                 char dFinder = rawInput.charAt(i);
@@ -31,11 +32,9 @@ public class Main {
             String rawInput1 = rawInput.substring(0,index);
             String rawInput2 = rawInput.substring(index+1);
 
-            int diceNum = 0;
-            int diceSides = 0;
 
-            diceNum = Integer.valueOf(rawInput1);
-            diceSides = Integer.valueOf(rawInput2);
+            int diceNum = Integer.parseInt(rawInput1);
+            int diceSides = Integer.parseInt(rawInput2);
 
             int[] dice = new int[diceNum];
 
@@ -50,7 +49,6 @@ public class Main {
             System.out.println("\nWould you like to go again? (y/n)?");
             System.out.print("Your Input: ");
             String continueLoop = input.next();
-            continueLoop.toLowerCase(Locale.ROOT);
 
             while(true) {
                 if (continueLoop.equalsIgnoreCase("y")) {
@@ -67,7 +65,7 @@ public class Main {
             if (continueLoop.equalsIgnoreCase("n")) {
                 break;
             }
-            
+
             System.out.println(" ");
         }
 
